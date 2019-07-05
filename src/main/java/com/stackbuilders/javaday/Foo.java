@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 // Concepts to explain:
 // - First class citizens
 // - High order functions
@@ -5,14 +8,17 @@ public class Foo {
   // How to fake functions as first class citizens
   // Explain A (input) and B (output)
   interface F<A, B> {
-    B apply(A arg);
+    B apply(A x);
   }
 
   // Explain <A, B>
-  public <A, B> B[] map(F<A, B> f, A[] xs) {
-
-
-    return null;
+  // explain high order function
+  public <A, B> List<B> map(F<A, B> f, A[] xs) {
+    List<B> ys = new ArrayList<B>();
+    for (A x : xs) {
+      ys.add(f.apply(x));
+    }
+    return ys;
   }
 
   // Java 1.6
