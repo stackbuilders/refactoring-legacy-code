@@ -31,8 +31,16 @@ public class HighOrder {
     return ys;
   }
 
+  public <A, B> B fold(F<A, F<B, B>> f, A[] xs, B initialValue) {
+    B acc = initialValue;
+    for (A x : xs) {
+      acc = f.apply(x).apply(acc);
+    }
+    return acc;
+  }
+
   // Java 1.6
-  public void highOrder() {
+  public void mapUsage() {
     Integer[] numbers =  new Integer[] { 1, 2, 3, 4, 5, 6 };
     // Functions that take other functions as parameters
     map(new F<Integer, Integer>() {
@@ -48,5 +56,20 @@ public class HighOrder {
       }
     };
     map(addOne, numbers);
+  }
+
+  public void foldUsage() {
+    Integer[] numbers =  new Integer[] { 1, 2, 3, 4, 5, 6 };
+    fold(new F<Integer, F<Integer, Integer>>() {
+      // Too verbose... Explain currying?
+      // Explain why final is required
+      public F<Integer, Integer>apply(final Integer x) {
+        return new F<Integer, Integer>() {
+          public Integer apply(Integer acc) {
+            return x + acc;
+          }
+        };
+      }
+    }, numbers, 0);
   }
 }
