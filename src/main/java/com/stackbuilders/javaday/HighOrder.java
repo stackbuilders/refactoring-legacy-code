@@ -4,7 +4,7 @@ import java.util.List;
 // Concepts to explain:
 // - First class citizens
 // - High order functions
-public class Foo {
+public class HighOrder {
   // How to fake functions as first class citizens
   // Explain A (input) and B (output)
   interface F<A, B> {
