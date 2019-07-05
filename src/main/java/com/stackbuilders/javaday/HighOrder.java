@@ -21,6 +21,16 @@ public class HighOrder {
     return ys;
   }
 
+  public <A> List<A> filter(F<A, Boolean> f, A[] xs) {
+    List<A> ys = new ArrayList<A>();
+    for (A x : xs) {
+      if (f.apply(x)) {
+        ys.add(x);
+      }
+    }
+    return ys;
+  }
+
   // Java 1.6
   public void highOrder() {
     Integer[] numbers =  new Integer[] { 1, 2, 3, 4, 5, 6 };
