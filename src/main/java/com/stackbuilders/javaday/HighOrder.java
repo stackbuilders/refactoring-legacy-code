@@ -1,3 +1,5 @@
+package com.stackbuilders.javaday;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -5,15 +7,10 @@ import java.util.List;
 // - First class citizens
 // - High order functions
 public class HighOrder {
-  // How to fake functions as first class citizens
-  // Explain A (input) and B (output)
-  interface F<A, B> {
-    B apply(A x);
-  }
 
   // Explain <A, B>
   // explain high order function
-  public <A, B> List<B> map(F<A, B> f, A[] xs) {
+  public static <A, B> List<B> map(F<A, B> f, A[] xs) {
     List<B> ys = new ArrayList<B>();
     for (A x : xs) {
       ys.add(f.apply(x));
