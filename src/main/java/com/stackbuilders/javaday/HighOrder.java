@@ -17,14 +17,12 @@ public class HighOrder {
     return ys;
   }
 
-  // Too verbose... Explain currying?
-  // Explain why final is required
-  public static <A, B> B fold(F<A, F<B, B>> f, A[] xs, B initialValue) {
-    B acc = initialValue;
+  public static <A, B> B fold(F<A, F<B, B>> f, A[] xs, B y0) {
+    B y = y0;
     for (A x : xs) {
-      acc = f.apply(x).apply(acc);
+      y = f.apply(x).apply(y);
     }
-    return acc;
+    return y;
   }
 
   // Explain <A, B>

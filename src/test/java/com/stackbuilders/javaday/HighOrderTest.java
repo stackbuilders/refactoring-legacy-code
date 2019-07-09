@@ -30,6 +30,38 @@ public class HighOrderTest {
   }
 
   @Test
+  public void foldEmptyListReturnsInitialValue() {
+    Integer[] numbers = new Integer[] {};
+    F<Integer, F<Integer, Integer>> sum = new F<Integer, F<Integer, Integer>>() {
+      public F<Integer, Integer> apply(final Integer x) {
+        return new F<Integer, Integer>() {
+          public Integer apply(Integer y) {
+            return x + y;
+          }
+        };
+      }
+    };
+    assertThat(fold(sum, numbers, 0), equalTo(0));
+  }
+
+  @Test
+  public void foldNonEmptyListReducesList() {
+    Integer[] numbers = new Integer[] { 1, 2, 3, 4 };
+    F<Integer, F<Integer, Integer>> sum = new F<Integer, F<Integer, Integer>>() {
+      // EXPLAIN: why final is required
+      // Too verbose... Explain currying?
+      public F<Integer, Integer> apply(final Integer x) {
+        return new F<Integer, Integer>() {
+          public Integer apply(Integer y) {
+            return x + y;
+          }
+        };
+      }
+    };
+    assertThat(fold(sum, numbers, 0), equalTo(10));
+  }
+
+  @Test
   public void mapEmptyListReturnsEmptyList() {
     Integer[] numbers = new Integer[] {};
     F<Integer, Integer> addOne = new F<Integer, Integer>() {
