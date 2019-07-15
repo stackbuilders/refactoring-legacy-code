@@ -10,7 +10,7 @@ public class HighOrderTest {
   @Test
   public void filterEmptyListReturnsEmptyList() {
     Integer[] numbers = new Integer[] {};
-    F<Integer, Boolean> isEven = new F<Integer, Boolean>() {
+    Function<Integer, Boolean> isEven = new Function<Integer, Boolean>() {
       public Boolean apply(Integer x) {
         return x % 2 == 0;
       }
@@ -21,7 +21,7 @@ public class HighOrderTest {
   @Test
   public void filterNonEmptyListReturnsElementsMatchingPredicate() {
     Integer[] numbers = new Integer[] { 1, 2, 3, 4 };
-    F<Integer, Boolean> isEven = new F<Integer, Boolean>() {
+    Function<Integer, Boolean> isEven = new Function<Integer, Boolean>() {
       public Boolean apply(Integer x) {
         return x % 2 == 0;
       }
@@ -57,7 +57,7 @@ public class HighOrderTest {
   @Test
   public void mapEmptyListReturnsEmptyList() {
     Integer[] numbers = new Integer[] {};
-    F<Integer, Integer> addOne = new F<Integer, Integer>() {
+    Function<Integer, Integer> addOne = new Function<Integer, Integer>() {
       public Integer apply(Integer x) {
         return x + 1;
       }
@@ -69,7 +69,7 @@ public class HighOrderTest {
   public void mapNonEmptyListAppliesFunctionToEachElement() {
     Integer[] numbers = new Integer[] { 1, 2, 3, 4 };
     // EXPLAIN: Assign a function to a variable
-    F<Integer, Integer> addOne = new F<Integer, Integer>() {
+    Function<Integer, Integer> addOne = new Function<Integer, Integer>() {
       public Integer apply(Integer x) {
         return x + 1;
       }
