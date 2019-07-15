@@ -10,7 +10,7 @@ public class HighOrderTest {
   @Test
   public void filterEmptyListReturnsEmptyList() {
     Integer[] numbers = new Integer[] {};
-    Function<Integer, Boolean> isEven = new Function<Integer, Boolean>() {
+    Predicate<Integer> isEven = new Predicate<Integer>() {
       public Boolean apply(Integer x) {
         return x % 2 == 0;
       }
@@ -21,7 +21,7 @@ public class HighOrderTest {
   @Test
   public void filterNonEmptyListReturnsElementsMatchingPredicate() {
     Integer[] numbers = new Integer[] { 1, 2, 3, 4 };
-    Function<Integer, Boolean> isEven = new Function<Integer, Boolean>() {
+    Predicate<Integer> isEven = new Predicate<Integer>() {
       public Boolean apply(Integer x) {
         return x % 2 == 0;
       }
