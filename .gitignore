@@ -1,3 +1,4 @@
-.jdk/
-.mvn/
+.settings/
 target/
+.classpath
+.project
