@@ -2,6 +2,10 @@
 
 Presentation source code.
 
+## Requirements
+
+- Node.js 9+
+
 ## Getting Started
 
 Install dependencies:
