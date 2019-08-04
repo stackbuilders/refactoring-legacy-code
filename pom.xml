@@ -4,6 +4,7 @@
   http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+  <!-- The Basics -->
   <name>JavaDay Code Snippets</name>
   <groupId>com.stackbuilders</groupId>
   <artifactId>javaday</artifactId>
@@ -30,4 +31,37 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+   <!-- More Project Information -->
+  <licenses>
+    <license>
+      <name>MIT</name>
+      <url>https://opensource.org/licenses/MIT</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>Stack Builders</name>
+    <url>https://www.stackbuilders.com</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>sestrella</id>
+      <name>Sebastián Estrella</name>
+      <email>sestrella@stackbuilders.com</email>
+      <url>http://github.com/sestrella</url>
+    </developer>
+  </developers>
+
+  <!-- Environment Settings -->
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/stackbuilders/javaday/issues</url>
+  </issueManagement>
+
+  <scm>
+    <url>https://github.com/stackbuilders/javaday</url>
+  </scm>
 </project>
