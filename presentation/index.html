@@ -493,6 +493,46 @@
             </pre>
           </section>
         </section>
+
+        <section>
+          <section>
+            <h1>Common abstractions</h1>
+          </section>
+
+          <section>
+            <pre>
+              <code class="java" data-trim>
+                interface Filter&lt;A&gt; {
+                  boolean filer(A element);
+                }
+
+                interface Mapper&lt;A, B&gt; {
+                  B map(A element);
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h3>The Function abstraction</h3>
+            <pre>
+              <code class="java" data-trim>
+                interface F&lt;A, B&gt; {
+                  B apply(A element);
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h3>The Function abstraction - Refactor Predicate</h3>
+            <pre>
+              <code class="java" data-trim>
+                interface Predicate&lt;A&gt; extends F&lt;A, Boolean&gt;
+              </code>
+            </pre>
+          </section>
+        </section>
 			</div>
 		</div>
 
