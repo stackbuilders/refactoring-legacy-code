@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/stackbuilders/javaday.svg?style=shield&circle-token=4b633d0a4eeb363e559f3efa5fd7c386c08f13bd)](https://circleci.com/gh/stackbuilders/javaday)
+
 # Refactoring legacy code using functional programming
 
 Code snippets used during [JavaDay][javaday] presentation.
