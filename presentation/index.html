@@ -337,6 +337,28 @@
               </code>
             </pre>
           </section>
+
+          <section>
+            <h3>JDK 8+ Filter + Map</h3>
+            <pre>
+              <code class="java" data-trim data-line-numbers="2-3,10">
+                List&lt;User&gt; enabledUsers = users.stream()
+                  .filter(user -> user.isEnabled())
+                  .map(user -> {
+                    Row row = new Row();
+                    row.addColumn(new Column(user.fullName());
+                    String role = user.isAdmin() ? "Admin" : "Member";
+                    row.addColumn(new Column(role));
+                    rows.add(row);
+                  })
+                  .collect(Collectors.toList());
+
+                Table table = new Table();
+                table.addRows(rows);
+                table.render();
+              </code>
+            </pre>
+          </section>
         </section>
 
         <section>
@@ -350,6 +372,14 @@
               <li>lambdas</li>
               <li>first-class functions</li>
               <li>high order functions</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>JDK 5, 6, 7 - What we have</h3>
+            <ul>
+              <li>Anonymous classes</li>
+              <li>Generics</li>
             </ul>
           </section>
 
@@ -369,28 +399,96 @@
           </section>
 
           <section>
-            <h3>Anonymous Classes - Implementing filter</h3>
+            <h3>Legacy Filter - Before</h3>
             <pre>
               <code class="java" data-trim>
                 interface Filter&lt;A&gt; {
                   boolean filter(A element);
                 }
 
-                &lt;A&gt; List&lt;A&gt; filter(Filter&lt;A&gt; predicate, List&lt;A&gt; list)
+                &lt;A&gt; List&lt;A&gt; filter(Filter&lt;A&gt; predicate, List&lt;A&gt; list) {
+                  List&lt;A&gt; result = new ArrayList&lt;A&gt;();
+                  for (A element : list) {
+                    if (predicate.filter(element)) {
+                      result.add(element);
+                    }
+                  }
+                  return result;
+                }
               </code>
             </pre>
           </section>
 
           <section>
-            <h3>Anonymous Classes - Implementing filter</h3>
+            <h3>Legacy Filter - After</h3>
             <pre>
               <code class="java" data-trim>
-                List&lt;User&gt; enabledUsers = filter(new Fitler&lt;User&gt;() {
+                List&lt;User&gt; enabledUsers = filter(new Filter&lt;User&gt;() {
                   @Override
                   public boolean filter(User user) {
                     return user.isEnabled();
                   }
                 }, users);
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h3>Legacy Map - Before</h3>
+            <pre>
+              <code class="java" data-trim>
+                interface Mapper&lt;A, B&gt; {
+                  B map(A element);
+                }
+
+                &lt;A, B&gt; List&lt;B&gt; map(Mapper&lt;A, B&gt; mapper, List&lt;A&gt; list) {
+                  List&lt;B&gt; result = new ArrayList&lt;B&gt;();
+                  for (A element : list) {
+                    result.add(mapper.map(element));
+                  }
+                  return result;
+                }
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h3>Legacy Map - After</h3>
+            <pre>
+              <code class="java" data-trim>
+                List&lt;Row&gt; rows = map(new Mapper&lt;User, Row&gt;() {
+                  @Override
+                  public Row map(User user) {
+                    Row row = new Row();
+                    row.addColumn(new Column(user.fullName());
+                    String role = user.isAdmin() ? "Admin" : "Member";
+                    row.addColumn(new Column(role));
+                    return row;
+                  })
+                }, enabledUsers);
+              </code>
+            </pre>
+          </section>
+
+          <section>
+            <h3>Legacy Filter + Map</h3>
+            <pre>
+              <code class="java" data-trim>
+                List&lt;Row&gt; rows = map(new Mapper&lt;User, Row&gt;() {
+                  @Override
+                  public Row map(User user) {
+                    Row row = new Row();
+                    row.addColumn(new Column(user.fullName());
+                    String role = user.isAdmin() ? "Admin" : "Member";
+                    row.addColumn(new Column(role));
+                    return row;
+                  })
+                }, filter(new Filter&lt;User&gt;() {
+                  @Override
+                  public boolean filter(User user) {
+                    return user.isEnabled();
+                  })
+                }, users));
               </code>
             </pre>
           </section>
