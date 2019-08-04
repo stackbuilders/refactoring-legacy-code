@@ -5,6 +5,9 @@ jobs:
     docker:
       - image: circleci/openjdk:8-jdk
 
+    environment:
+      MAVEN_OPTS: -Xmx3200m
+
     steps:
       - checkout
       - run: mvn compile
