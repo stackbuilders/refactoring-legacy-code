@@ -161,79 +161,25 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         <section>
           <section>
-            <h3>First refactor - 1/3</h3>
+            <h3>Separation of Concerns</h3>
             <pre>
-              <code class="java" data-trim data-line-numbers="1-6">
+              <code class="java" data-trim>
                 List&lt;User&gt; enabledUsers = new ArrayList&lt;User&gt;();
                 for (User user : users) {
-                  if (user.isEnabled()) {
-                    enabledUsers.add(user);
-                  }
+                  ...
                 }
-
-                List&lt;Row&gt; rows = new ArrayList&lt;Row&gt;();
-                for (User user : enabledUsers) {
-                  Row row = new Row();
-                  row.addColumn(new Column(user.fullName());
-                  String role = user.isAdmin() ? "Admin" : "Member";
-                  row.addColumn(new Column(role));
-                  rows.add(row);
-                }
-
-                Table table = new Table();
-                table.addRows(rows);
-                table.render();
               </code>
             </pre>
-          </section>
-
-          <section>
-            <h3>First refactor - 2/3</h3>
             <pre>
-              <code class="java" data-trim data-line-numbers="8-15">
-                List&lt;User&gt; enabledUsers = new ArrayList&lt;User&gt;();
-                for (User user : users) {
-                  if (user.isEnabled()) {
-                    enabledUsers.add(user);
-                  }
-                }
-
+              <code class="java" data-trim>
                 List&lt;Row&gt; rows = new ArrayList&lt;Row&gt;();
                 for (User user : enabledUsers) {
-                  Row row = new Row();
-                  row.addColumn(new Column(user.fullName());
-                  String role = user.isAdmin() ? "Admin" : "Member";
-                  row.addColumn(new Column(role));
-                  rows.add(row);
+                  ...
                 }
-
-                Table table = new Table();
-                table.addRows(rows);
-                table.render();
               </code>
             </pre>
-          </section>
-
-          <section>
-            <h3>First refactor - 3/3</h3>
             <pre>
-              <code class="java" data-trim data-line-numbers="17-19">
-                List&lt;User&gt; enabledUsers = new ArrayList&lt;User&gt;();
-                for (User user : users) {
-                  if (user.isEnabled()) {
-                    enabledUsers.add(user);
-                  }
-                }
-
-                List&lt;Row&gt; rows = new ArrayList&lt;Row&gt;();
-                for (User user : enabledUsers) {
-                  Row row = new Row();
-                  row.addColumn(new Column(user.fullName());
-                  String role = user.isAdmin() ? "Admin" : "Member";
-                  row.addColumn(new Column(role));
-                  rows.add(row);
-                }
-
+              <code class="java" data-trim>
                 Table table = new Table();
                 table.addRows(rows);
                 table.render();
@@ -248,16 +194,44 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           </section>
 
           <section>
-            <h3>JDK 8+ Filter - Before</h3>
+            <h3>Functional Programming</h3>
+            <ul>
+              <li>First-class functions</li>
+              <li>Higher-order functions</li>
+              <li>Composition</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Wholemeal programming</h3>
+            <p>TODO</p>
+          </section>
+
+          <section>
+            <h3>Filter</h3>
             <pre>
-              <code class="java" data-trim data-line-numbers="1-6">
+              <code class="java" data-trim>
                 List&lt;User&gt; enabledUsers = new ArrayList&lt;User&gt;();
                 for (User user : users) {
                   if (user.isEnabled()) {
                     enabledUsers.add(user);
                   }
                 }
+              </code>
+            </pre>
+            <pre>
+              <code class="java" data-trim>
+                List&lt;User&gt; enabledUsers = users.stream()
+                  .filter(user -> user.isEnabled())
+                  .collect(Collectors.toList());
+              </code>
+            </pre>
+          </section>
 
+          <section>
+            <h3>Map</h3>
+            <pre>
+              <code class="java" data-trim>
                 List&lt;Row&gt; rows = new ArrayList&lt;Row&gt;();
                 for (User user : enabledUsers) {
                   Row row = new Row();
@@ -266,70 +240,10 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                   row.addColumn(new Column(role));
                   rows.add(row);
                 }
-
-                Table table = new Table();
-                table.addRows(rows);
-                table.render();
               </code>
             </pre>
-          </section>
-
-          <section>
-            <h3>JDK 8+ Filter - After</h3>
             <pre>
-              <code class="java" data-trim data-line-numbers="1-3">
-                List&lt;User&gt; enabledUsers = users.stream()
-                  .filter(user -> user.isEnabled())
-                  .collect(Collectors.toList());
-
-                List&lt;Row&gt; rows = new ArrayList&lt;Row&gt;();
-                for (User user : enabledUsers) {
-                  Row row = new Row();
-                  row.addColumn(new Column(user.fullName());
-                  String role = user.isAdmin() ? "Admin" : "Member";
-                  row.addColumn(new Column(role));
-                  rows.add(row);
-                }
-
-                Table table = new Table();
-                table.addRows(rows);
-                table.render();
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h3>JDK 8+ Map - Before</h3>
-            <pre>
-              <code class="java" data-trim data-line-numbers="5-12">
-                List&lt;User&gt; enabledUsers = users.stream()
-                  .filter(user -> user.isEnabled())
-                  .collect(Collectors.toList());
-
-                List&lt;Row&gt; rows = new ArrayList&lt;Row&gt;();
-                for (User user : enabledUsers) {
-                  Row row = new Row();
-                  row.addColumn(new Column(user.fullName());
-                  String role = user.isAdmin() ? "Admin" : "Member";
-                  row.addColumn(new Column(role));
-                  rows.add(row);
-                }
-
-                Table table = new Table();
-                table.addRows(rows);
-                table.render();
-              </code>
-            </pre>
-          </section>
-
-          <section>
-            <h3>JDK 8+ Map - After</h3>
-            <pre>
-              <code class="java" data-trim data-line-numbers="5-13">
-                List&lt;User&gt; enabledUsers = users.stream()
-                  .filter(user -> user.isEnabled())
-                  .collect(Collectors.toList());
-
+              <code class="java" data-trim>
                 List&lt;Row&gt; rows = enabledUsers.stream()
                   .map(user -> {
                     Row row = new Row();
@@ -339,18 +253,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
                     rows.add(row);
                   })
                   .collect(Collectors.toList());
-
-                Table table = new Table();
-                table.addRows(rows);
-                table.render();
               </code>
             </pre>
           </section>
 
           <section>
-            <h3>JDK 8+ Filter + Map</h3>
+            <h3>Composition</h3>
             <pre>
-              <code class="java" data-trim data-line-numbers="2-3,10">
+              <code class="java" data-trim>
                 List&lt;User&gt; enabledUsers = users.stream()
                   .filter(user -> user.isEnabled())
                   .map(user -> {
