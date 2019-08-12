@@ -69,8 +69,7 @@
               <goal>build-classpath</goal>
             </goals>
             <configuration>
-              <includeScope>runtime</includeScope>
-              <outputProperty>classpath</outputProperty>
+              <outputProperty>depsClasspath</outputProperty>
             </configuration>
           </execution>
         </executions>
@@ -81,10 +80,14 @@
         <version>1.6.0</version>
         <configuration>
           <mainClass>com.stackbuilders.javaday.jdk8.BenchmarkRunner</mainClass>
+          <arguments>
+            <argument>-rf</argument>
+            <argument>json</argument>
+          </arguments>
           <systemProperties>
             <systemProperty>
               <key>java.class.path</key>
-              <value>${project.build.outputDirectory}:${classpath}</value>
+              <value>${project.build.outputDirectory}:${depsClasspath}</value>
             </systemProperty>
           </systemProperties>
         </configuration>

@@ -1,0 +1,170 @@
+[
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "com.stackbuilders.javaday.jdk8.FilterBenchmark.anonymousClass",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 5,
+        "jvm" : "/home/sestrella/.asdf/installs/java/oracle-8.141/jre/bin/java",
+        "jvmArgs" : [
+            "-Dclassworlds.conf=/home/sestrella/.asdf/installs/maven/3.6.1/bin/m2.conf",
+            "-Dmaven.home=/home/sestrella/.asdf/installs/maven/3.6.1",
+            "-Dlibrary.jansi.path=/home/sestrella/.asdf/installs/maven/3.6.1/lib/jansi-native",
+            "-Dmaven.multiModuleProjectDirectory=/home/sestrella/code/stackbuilders/javaday"
+        ],
+        "jdkVersion" : "1.8.0_141",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.141-b15",
+        "warmupIterations" : 5,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 3905620.80656715,
+            "scoreError" : 97753.35037156224,
+            "scoreConfidence" : [
+                3807867.4561955878,
+                4003374.1569387126
+            ],
+            "scorePercentiles" : {
+                "0.0" : 3641514.8953770543,
+                "50.0" : 3877624.1037380314,
+                "90.0" : 4152551.254154004,
+                "95.0" : 4170037.9006533623,
+                "99.0" : 4172525.120943171,
+                "99.9" : 4172525.120943171,
+                "99.99" : 4172525.120943171,
+                "99.999" : 4172525.120943171,
+                "99.9999" : 4172525.120943171,
+                "100.0" : 4172525.120943171
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    3641514.8953770543,
+                    3912165.605950754,
+                    3907305.600219099,
+                    3877624.1037380314,
+                    3906649.0535842874
+                ],
+                [
+                    3809057.389096158,
+                    3804020.231302497,
+                    3810943.2138277893,
+                    3794356.638516313,
+                    3837731.6281010215
+                ],
+                [
+                    3899714.9977996885,
+                    3846251.3609466082,
+                    3907888.9468604825,
+                    3882573.252251421,
+                    3886851.0612310716
+                ],
+                [
+                    3846196.5321261003,
+                    3832955.2168905614,
+                    3838384.184973159,
+                    3874609.429479258,
+                    3845879.4735220456
+                ],
+                [
+                    4172525.120943171,
+                    4164234.3866438083,
+                    4144762.499160801,
+                    4078576.9897518186,
+                    4117748.3518857444
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    },
+    {
+        "jmhVersion" : "1.21",
+        "benchmark" : "com.stackbuilders.javaday.jdk8.FilterBenchmark.lambdaExpression",
+        "mode" : "thrpt",
+        "threads" : 1,
+        "forks" : 5,
+        "jvm" : "/home/sestrella/.asdf/installs/java/oracle-8.141/jre/bin/java",
+        "jvmArgs" : [
+            "-Dclassworlds.conf=/home/sestrella/.asdf/installs/maven/3.6.1/bin/m2.conf",
+            "-Dmaven.home=/home/sestrella/.asdf/installs/maven/3.6.1",
+            "-Dlibrary.jansi.path=/home/sestrella/.asdf/installs/maven/3.6.1/lib/jansi-native",
+            "-Dmaven.multiModuleProjectDirectory=/home/sestrella/code/stackbuilders/javaday"
+        ],
+        "jdkVersion" : "1.8.0_141",
+        "vmName" : "Java HotSpot(TM) 64-Bit Server VM",
+        "vmVersion" : "25.141-b15",
+        "warmupIterations" : 5,
+        "warmupTime" : "10 s",
+        "warmupBatchSize" : 1,
+        "measurementIterations" : 5,
+        "measurementTime" : "10 s",
+        "measurementBatchSize" : 1,
+        "primaryMetric" : {
+            "score" : 3940706.985940572,
+            "scoreError" : 136971.00830423026,
+            "scoreConfidence" : [
+                3803735.9776363415,
+                4077677.9942448023
+            ],
+            "scorePercentiles" : {
+                "0.0" : 3251560.1152851977,
+                "50.0" : 3976389.821426317,
+                "90.0" : 4099857.6603630576,
+                "95.0" : 4129929.437735993,
+                "99.0" : 4142751.7523875977,
+                "99.9" : 4142751.7523875977,
+                "99.99" : 4142751.7523875977,
+                "99.999" : 4142751.7523875977,
+                "99.9999" : 4142751.7523875977,
+                "100.0" : 4142751.7523875977
+            },
+            "scoreUnit" : "ops/s",
+            "rawData" : [
+                [
+                    4064606.79628416,
+                    4084611.90043119,
+                    4069054.2343002562,
+                    4100010.7035489157,
+                    3804946.4370078985
+                ],
+                [
+                    3755035.238194708,
+                    4087068.2915719035,
+                    4142751.7523875977,
+                    3919087.5691178422,
+                    4004596.058880852
+                ],
+                [
+                    3864457.917429467,
+                    3928054.417672609,
+                    3858422.860821007,
+                    3915050.5542485514,
+                    3763397.573462201
+                ],
+                [
+                    4099755.6315724854,
+                    4026057.028194242,
+                    3251560.1152851977,
+                    4010429.311773145,
+                    3976389.821426317
+                ],
+                [
+                    4051170.0044525517,
+                    4086960.5924531347,
+                    3925619.6574637434,
+                    3843650.0850010514,
+                    3884930.0955332383
+                ]
+            ]
+        },
+        "secondaryMetrics" : {
+        }
+    }
+]
+
+
