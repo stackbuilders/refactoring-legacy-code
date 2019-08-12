@@ -29,6 +29,14 @@ Run the tests:
 mvn test
 ```
 
+## Benchmark
+
+Run benchmark:
+
+```
+mvn exec:java
+```
+
 ## License
 
 [MIT](LICENSE) license.
