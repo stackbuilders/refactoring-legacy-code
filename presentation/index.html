@@ -8,8 +8,7 @@
 
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/reveal.css">
-    <!--<link rel="stylesheet" href="css/theme/moon.css"> -->
-    <link rel="stylesheet" href="css/theme/solarized.css">
+    <link rel="stylesheet" href="css/theme/moon.css"> 
 
     <!-- Theme used for syntax highlighting of code -->
     <!--<link rel="stylesheet" href="lib/css/solarized-dark.css"> -->
@@ -38,31 +37,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
         </section>
 
         <section>
-          <h3>Original code snippet</h3>
-          <pre>
-            <code class="java" data-trim>
-              Table table = new Table();
-
-              for (User user : users) {
-                if (user.isEnabled()) {
-                  Row row = new Row();
-                  row.addColumn(new Column(user.fullName());
-                  String role = user.isAdmin() ? "Admin" : "Member";
-                  row.addColumn(new Column(role));
-                  table.addRow(row);
-                }
-              }
-
-              table.render();
-            </code>
-          </pre>
+          <h1>Showtime</h1>
         </section>
 
         <section>
           <section>
-            <h3>Introducing filter</h3>
+            <h3>Original Code Snippet</h3>
             <pre>
-              <code class="java" data-trim data-line-numbers="4">
+              <code class="java" data-trim>
                 Table table = new Table();
 
                 for (User user : users) {
@@ -81,7 +63,12 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
           </section>
 
           <section>
-            <h3>Predicate</h3>
+            <h3>The Magical Number Seven, Plus or Minus Two</h3>
+            <p>George Armitage Miller</p>
+          </section>
+
+          <section>
+            <h3>Separation of Concerns</h3>
             <pre>
               <code class="java" data-trim data-line-numbers="3-8">
                 Table table = new Table();
@@ -105,39 +92,11 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
               </code>
             </pre>
           </section>
-        </section>
-
-        <section>
-          <section>
-            <h3>Mutation</h3>
-            <pre>
-              <code class="java" data-trim data-line-numbers="1,15">
-                Table table = new Table();
-
-                List&lt;User&gt; enabledUsers = new ArrayList&lt;User&gt;();
-                for (User user : users) {
-                  if (user.isEnabled()) {
-                    enabledUsers.add(user);
-                  }
-                }
-
-                for (User user : enabledUsers) {
-                  Row row = new Row();
-                  row.addColumn(new Column(user.fullName());
-                  String role = user.isAdmin() ? "Admin" : "Member";
-                  row.addColumn(new Column(role));
-                  table.addRow(row);
-                }
-
-                table.render();
-              </code>
-            </pre>
-          </section>
 
           <section>
-            <h3>Intro Map</h3>
+            <h3>One Row per User</h3>
             <pre>
-              <code class="java" data-trim data-line-numbers="8,14,18">
+              <code class="java" data-trim data-line-numbers="8-15">
                 List&lt;User&gt; enabledUsers = new ArrayList&lt;User&gt;();
                 for (User user : users) {
                   if (user.isEnabled()) {
@@ -160,34 +119,14 @@ document.getElementsByTagName( 'head' )[0].appendChild( link );
               </code>
             </pre>
           </section>
-        </section>
 
-        <section>
           <section>
-            <h3>Separation of Concerns</h3>
-            <pre>
-              <code class="java" data-trim>
-                List&lt;User&gt; enabledUsers = new ArrayList&lt;User&gt;();
-                for (User user : users) {
-                  ...
-                }
-              </code>
-            </pre>
-            <pre>
-              <code class="java" data-trim>
-                List&lt;Row&gt; rows = new ArrayList&lt;Row&gt;();
-                for (User user : enabledUsers) {
-                  ...
-                }
-              </code>
-            </pre>
-            <pre>
-              <code class="java" data-trim>
-                Table table = new Table();
-                table.addRows(rows);
-                table.render();
-              </code>
-            </pre>
+            <h3>Advantages?</h3>
+            <ul>
+              <li>Cohesion</li>
+              <li>Readability</li>
+              <li>Testability</li>
+            </ul>
           </section>
         </section>
 
