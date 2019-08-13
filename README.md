@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/stackbuilders/javaday.svg?style=shield&circle-token=4b633d0a4eeb363e559f3efa5fd7c386c08f13bd)](https://circleci.com/gh/stackbuilders/javaday)
+[![Build Status](https://travis-ci.org/stackbuilders/refactoring-legacy-code.svg?branch=master)](https://travis-ci.org/stackbuilders/refactoring-legacy-code)
 
 # Refactoring legacy code using functional programming
 
