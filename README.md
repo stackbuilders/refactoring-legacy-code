@@ -39,7 +39,7 @@ mvn exec:java
 
 ## License
 
-[MIT](LICENSE) license.
+Licensed under [MIT](LICENSE).
 
 [javaday]: https://www.javaday.ec
 [jdk-8]: https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
