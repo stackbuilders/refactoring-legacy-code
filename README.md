@@ -31,10 +31,16 @@ mvn test
 
 ## Benchmark
 
+Compile the source code:
+
+```
+mvn compile -Pjdk8
+```
+
 Run benchmark:
 
 ```
-mvn exec:java
+mvn exec:java -Pjdk8
 ```
 
 ## License
