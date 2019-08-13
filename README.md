@@ -14,7 +14,7 @@ Code snippets used during [JavaDay][javaday] presentation.
 Clone the repository:
 
 ```
-git clone https://github.com/stackbuilders/javaday.git
+git clone https://github.com/stackbuilders/refactoring-legacy-code-using-functional-programming.git
 ```
 
 Compile the source code:
